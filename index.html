@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Survey Flow — Industrial Inspection Automation Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#08090B;}
+  body{
+    font-family:'Inter',sans-serif;
+    background-image: radial-gradient(circle, #20242b 1px, transparent 1px);
+    background-size: 22px 22px;
+    overflow:auto;
+  }
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(8,9,11,0.92);backdrop-filter:blur(6px);
+    border-bottom:1px solid #23262c;
+    padding:14px 24px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .topbar .title{color:#E5E7EB;font-weight:600;font-size:14px;}
+  .topbar .sub{color:#6B7280;font-size:11.5px;font-family:'IBM Plex Mono',monospace;margin-top:2px;}
+  .legend{display:flex;gap:16px;font-size:11px;color:#9CA3AF;font-family:'IBM Plex Mono',monospace;}
+  .legend span{display:flex;align-items:center;gap:6px;}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .canvas-wrap{position:relative;padding:30px;}
+  .canvas{position:relative;width:1262.0px;height:15172px;}
+
+  .ncard{
+    position:absolute;background:#0D0F12;border:1px solid #262A31;border-radius:9px;
+    padding:12px 14px 13px;box-shadow:0 1px 0 rgba(255,255,255,0.02) inset;
+  }
+  .nstart{border-color:#22392C;}
+  .nend{border-color:#3A2323;}
+  .nhead{display:flex;align-items:center;gap:7px;margin-bottom:9px;}
+  .nicon{display:flex;align-items:center;}
+  .nlabel{font-size:12.5px;color:#D1D5DB;font-weight:500;}
+  .req-tag{
+    margin-left:auto;display:flex;align-items:center;gap:4px;
+    font-size:10px;color:#6B7280;font-family:'IBM Plex Mono',monospace;
+  }
+  .ntext{font-size:13.5px;line-height:1.42;color:#F3F4F6;}
+  .nbadges{display:flex;gap:6px;margin-top:10px;}
+  .badge-field{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#93C5FD;
+    background:#111827;border:1px solid #1F2937;border-radius:4px;padding:2px 7px;
+  }
+  .badge-type{font-size:10.5px;color:#6B7280;align-self:center;}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div>
+      <div class="title">Industrial Inspection Automation Study — Survey Flow</div>
+      <div class="sub">8 screening questions · 51 core questions · 67 total nodes</div>
+    </div>
+    <div class="legend">
+      <span><span class="dot" style="background:#4ADE80"></span>Start</span>
+      <span><span class="dot" style="background:#6EE7B7"></span>Ask</span>
+      <span><span class="dot" style="background:#F87171"></span>Terminate / End</span>
+      <span><span class="dot" style="background:#6B7280"></span>Conditional branch</span>
+    </div>
+  </div>
+  <div class="canvas-wrap">
+    <div class="canvas">
+      <svg width="1262.0" height="15172" style="position:absolute;top:0;left:0;pointer-events:none;"><path d="M 542.0 170 L 542.0 262" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="170" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="262" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 380 L 542.0 472" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="380" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="472" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 590 L 542.0 682" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="590" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="682" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 820 C 542.0 876.0, 872.0 876.0, 872.0 932" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="820" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="872.0" cy="932" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(614.65,865.0)">
+            <rect width="184.7" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="92.35" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">country = None of the above</text>
+          </g><path d="M 542.0 820 L 542.0 1116" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="820" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="1116" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 1234 L 542.0 1326" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="1234" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="1326" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 1444 C 542.0 1500.0, 872.0 1500.0, 872.0 1556" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="1444" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="872.0" cy="1556" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(648.2,1489.0)">
+            <rect width="117.6" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="58.8" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">revenue &lt; $1B</text>
+          </g><path d="M 542.0 1444 L 542.0 1740" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="1444" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="1740" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 1878 L 542.0 1970" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="1878" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="1970" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 2088 C 542.0 2144.0, 872.0 2144.0, 872.0 2200" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="2088" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="872.0" cy="2200" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(645.15,2133.0)">
+            <rect width="123.69999999999999" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="61.849999999999994" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">employees ≤ 1,000</text>
+          </g><path d="M 542.0 2088 L 542.0 2384" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="2088" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="2384" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 2502 L 542.0 2594" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="2502" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="2594" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 2732 C 542.0 2788.0, 872.0 2788.0, 872.0 2844" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="2732" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="872.0" cy="2844" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(623.8,2777.0)">
+            <rect width="166.39999999999998" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="83.19999999999999" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">no knowledge / can’t say</text>
+          </g><path d="M 542.0 2732 L 542.0 3028" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="2732" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="3028" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 3166 L 542.0 3258" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="3166" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="3258" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 3396 L 542.0 3488" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="3396" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="3488" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 3606 L 542.0 3698" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="3606" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="3698" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 3836 C 542.0 3882.0, 542.0 3882.0, 542.0 3928" stroke="#4B5563" stroke-width="1.3" fill="none" stroke-dasharray="4,4"/><circle cx="542.0" cy="3836" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="3928" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(431.35,3871.0)">
+            <rect width="221.29999999999998" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="110.64999999999999" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">Q1 = Non-User → auto-set 0%, skip</text>
+          </g><path d="M 542.0 4066 L 542.0 4158" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="4066" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="4158" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 4296 L 542.0 4388" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="4296" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="4388" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 4526 L 542.0 4618" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="4526" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="4618" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 4756 L 542.0 4848" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="4756" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="4848" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 4986 C 542.0 5042.0, 212.0 5042.0, 212.0 5098" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="4986" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="212.0" cy="5098" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(299.9,5031.0)">
+            <rect width="154.2" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="77.1" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">sector = Oil &amp; Gas</text>
+          </g><path d="M 212.0 5216 C 212.0 5272.0, 542.0 5272.0, 542.0 5328" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="212.0" cy="5216" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="5328" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 5466 L 542.0 5558" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="5466" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="5558" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 5676 C 542.0 5732.0, 212.0 5732.0, 212.0 5788" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="5676" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="212.0" cy="5788" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(306.0,5721.0)">
+            <rect width="142.0" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="71.0" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">role = Plant Manager</text>
+          </g><path d="M 212.0 5906 C 212.0 5962.0, 542.0 5962.0, 542.0 6018" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="212.0" cy="5906" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="6018" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 6156 C 542.0 6212.0, 212.0 6212.0, 212.0 6268" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="6156" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="212.0" cy="6268" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(263.3,6201.0)">
+            <rect width="227.39999999999998" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="113.69999999999999" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">role = Maintenance/Reliability Mgr</text>
+          </g><path d="M 212.0 6406 L 212.0 6498" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="212.0" cy="6406" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="212.0" cy="6498" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 212.0 6616 C 212.0 6672.0, 542.0 6672.0, 542.0 6728" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="212.0" cy="6616" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="6728" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 6866 L 542.0 6958" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="6866" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="6958" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 7096 L 542.0 7188" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="7096" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="7188" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 7326 L 542.0 7418" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="7326" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="7418" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 7556 L 542.0 7648" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="7556" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="7648" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 7786 L 542.0 7878" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="7786" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="7878" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 8016 L 542.0 8108" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="8016" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="8108" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 8226 L 542.0 8318" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="8226" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="8318" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 8456 L 542.0 8548" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="8456" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="8548" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 8686 C 542.0 8742.0, 212.0 8742.0, 212.0 8798" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="8686" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="212.0" cy="8798" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(266.35,8731.0)">
+            <rect width="221.29999999999998" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="110.64999999999999" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">status = Non-User / Early Adopter</text>
+          </g><path d="M 212.0 8936 L 212.0 9028" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="212.0" cy="8936" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="212.0" cy="9028" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 212.0 9166 C 212.0 9222.0, 542.0 9222.0, 542.0 9278" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="212.0" cy="9166" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="9278" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 9416 L 542.0 9508" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="9416" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="9508" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 9646 L 542.0 9738" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="9646" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="9738" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 9876 L 542.0 9968" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="9876" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="9968" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 10106 L 542.0 10198" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="10106" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="10198" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 10336 L 542.0 10428" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="10336" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="10428" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 10546 L 542.0 10638" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="10546" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="10638" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 10756 L 542.0 10848" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="10756" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="10848" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 10966 L 542.0 11058" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="10966" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="11058" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 11196 L 542.0 11288" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="11196" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="11288" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 11426 L 542.0 11518" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="11426" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="11518" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 11656 L 542.0 11748" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="11656" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="11748" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 11886 L 542.0 11978" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="11886" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="11978" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 12116 L 542.0 12208" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="12116" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="12208" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 12326 L 542.0 12418" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="12326" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="12418" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 12556 L 542.0 12648" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="12556" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="12648" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 12766 L 542.0 12858" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="12766" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="12858" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 12976 L 542.0 13068" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="12976" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="13068" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 13186 L 542.0 13278" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="13186" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="13278" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 13416 L 542.0 13508" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="13416" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="13508" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 13646 L 542.0 13738" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="13646" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="13738" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 13876 L 542.0 13968" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="13876" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="13968" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 14106 L 542.0 14198" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="14106" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="14198" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 14336 C 542.0 14392.0, 212.0 14392.0, 212.0 14448" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="14336" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="212.0" cy="14448" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/>
+          <g transform="translate(272.45,14381.0)">
+            <rect width="209.1" height="22" rx="4" fill="#111318" stroke="#374151" stroke-width="1"/>
+            <text x="104.55" y="15" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9CA3AF">provider selected ≠ None/Others</text>
+          </g><path d="M 212.0 14586 C 212.0 14642.0, 542.0 14642.0, 542.0 14698" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="212.0" cy="14586" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="14698" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><path d="M 542.0 14836 L 542.0 14928" stroke="#4B5563" stroke-width="1.3" fill="none"/><circle cx="542.0" cy="14836" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/><circle cx="542.0" cy="14928" r="3" fill="#0A0A0B" stroke="#6B7280" stroke-width="1.3"/></svg>
+      
+    <div class="ncard nstart" style="left:410.0px; top:40px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4ADE80" stroke-width="1.8"/><path d="M9 8l6 4-6 4V8z" fill="#4ADE80"/></svg></span><span class="nlabel">Start</span></div>
+      <div class="ntext">Hello, I&#x27;m calling on behalf of the research team about the Industrial Inspection Automation study.</div>
+      
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:262px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How would you define the sector of your company?</div>
+      <div class="nbadges"><span class="badge-field">sector_group</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:472px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which sub-category best fits your company?</div>
+      <div class="nbadges"><span class="badge-field">sector_sub</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:682px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">In which country is your organization primarily located or headquartered?</div>
+      <div class="nbadges"><span class="badge-field">country</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nend" style="left:740.0px; top:932px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F87171" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="#F87171" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nlabel">End</span></div>
+      <div class="ntext">Screener not met — thank &amp; terminate.</div>
+      
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:1116px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What is your role or designation in the organization?</div>
+      <div class="nbadges"><span class="badge-field">role</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:1326px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which range best represents your company&#x27;s annual revenue?</div>
+      <div class="nbadges"><span class="badge-field">revenue_band</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nend" style="left:740.0px; top:1556px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F87171" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="#F87171" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nlabel">End</span></div>
+      <div class="ntext">Screener not met — thank &amp; terminate.</div>
+      
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:1740px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What is the approximate annual maintenance and inspection budget?</div>
+      <div class="nbadges"><span class="badge-field">maint_budget</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:1970px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How many employees currently work in your organization?</div>
+      <div class="nbadges"><span class="badge-field">employee_band</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nend" style="left:740.0px; top:2200px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F87171" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="#F87171" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nlabel">End</span></div>
+      <div class="ntext">Screener not met — thank &amp; terminate.</div>
+      
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:2384px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How many operational facilities or sites do you oversee?</div>
+      <div class="nbadges"><span class="badge-field">facility_count</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:2594px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Are you involved in evaluating or purchasing inspection automation solutions?</div>
+      <div class="nbadges"><span class="badge-field">purchase_influence</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nend" style="left:740.0px; top:2844px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F87171" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="#F87171" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nlabel">End</span></div>
+      <div class="ntext">Screener not met — thank &amp; terminate.</div>
+      
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:3028px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which of the following best describes your current inspection process?</div>
+      <div class="nbadges"><span class="badge-field">inspection_process</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:3258px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">You selected an approach above — can you explain in short why?</div>
+      <div class="nbadges"><span class="badge-field">process_reason</span><span class="badge-type">text</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:3488px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How often are inspections conducted in your facilities?</div>
+      <div class="nbadges"><span class="badge-field">inspection_frequency</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:3698px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which assets require frequent inspection in your operations?</div>
+      <div class="nbadges"><span class="badge-field">assets_inspected</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:3928px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What percentage of your inspections/maintenance is currently automated?</div>
+      <div class="nbadges"><span class="badge-field">automation_pct</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:4158px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How is maintenance/inspection approached in your organization?</div>
+      <div class="nbadges"><span class="badge-field">maintenance_approach</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:4388px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What are the top 3 challenges with your current inspection process?</div>
+      <div class="nbadges"><span class="badge-field">top_challenges</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:4618px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">To what extent would automated inspections improve these aspects?</div>
+      <div class="nbadges"><span class="badge-field">benefit_ratings</span><span class="badge-type">grid</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:4848px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What is the estimated cost of one hour of unplanned downtime?</div>
+      <div class="nbadges"><span class="badge-field">downtime_cost</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:80.0px; top:5098px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What is the cost of shutting down critical assets?</div>
+      <div class="nbadges"><span class="badge-field">critical_shutdown_cost</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:5328px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How often does unplanned downtime occur in your organization?</div>
+      <div class="nbadges"><span class="badge-field">downtime_frequency</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:5558px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What are the top 3 causes of unplanned downtime?</div>
+      <div class="nbadges"><span class="badge-field">downtime_causes</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:80.0px; top:5788px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which assets, if failed, create the highest disruption?</div>
+      <div class="nbadges"><span class="badge-field">high_disruption_assets</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:6018px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What % of downtime is attributed to missed or delayed inspections?</div>
+      <div class="nbadges"><span class="badge-field">downtime_from_inspection</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:80.0px; top:6268px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What is the typical gap between fault occurrence and detection?</div>
+      <div class="nbadges"><span class="badge-field">fault_detection_gap</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:80.0px; top:6498px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which asset failures are hardest to detect early?</div>
+      <div class="nbadges"><span class="badge-field">hard_to_detect_failures</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:6728px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How do you evaluate ROI for inspection technology investments?</div>
+      <div class="nbadges"><span class="badge-field">roi_methods</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:6958px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What payback period is acceptable for automation investment?</div>
+      <div class="nbadges"><span class="badge-field">payback_period</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:7188px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How difficult is it to recruit and retain skilled inspection staff?</div>
+      <div class="nbadges"><span class="badge-field">recruit_difficulty</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:7418px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What % of your inspection workforce is eligible for retirement in 5 years?</div>
+      <div class="nbadges"><span class="badge-field">retirement_risk</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:7648px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Have labor shortages impacted inspection frequency or quality?</div>
+      <div class="nbadges"><span class="badge-field">labor_shortage_impact</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:7878px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How much time do skilled technicians spend on repetitive tasks?</div>
+      <div class="nbadges"><span class="badge-field">repetitive_task_time</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:8108px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What types of inspection tasks are considered hazardous?</div>
+      <div class="nbadges"><span class="badge-field">hazard_types</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:8318px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What percentage of inspections involve hazardous conditions?</div>
+      <div class="nbadges"><span class="badge-field">hazard_pct</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:8548px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What is the impact of safety constraints on inspection frequency?</div>
+      <div class="nbadges"><span class="badge-field">safety_constraint_impact</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:80.0px; top:8798px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How open is your organization to inspection automation adoption?</div>
+      <div class="nbadges"><span class="badge-field">adoption_openness</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:80.0px; top:9028px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Rank the key barriers to automation adoption by significance.</div>
+      <div class="nbadges"><span class="badge-field">adoption_barriers_rank</span><span class="badge-type">ranking</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:9278px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What would accelerate the adoption of inspection automation most?</div>
+      <div class="nbadges"><span class="badge-field">adoption_accelerants</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:9508px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What methods does your organization use for vendor selection?</div>
+      <div class="nbadges"><span class="badge-field">vendor_selection_method</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:9738px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which functions are typically involved in final decision-making?</div>
+      <div class="nbadges"><span class="badge-field">decision_functions</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:9968px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Have you previously piloted automated inspection solutions?</div>
+      <div class="nbadges"><span class="badge-field">pilot_history</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:10198px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How important is third-party ROI benchmarking data in your decision?</div>
+      <div class="nbadges"><span class="badge-field">roi_benchmark_importance</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:10428px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How is the current inspected data stored and utilized?</div>
+      <div class="nbadges"><span class="badge-field">data_storage</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:10638px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What types of inspection data are collected?</div>
+      <div class="nbadges"><span class="badge-field">data_types</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:10848px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Are inspection data integrated with enterprise systems?</div>
+      <div class="nbadges"><span class="badge-field">data_integration</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:11058px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What challenges does your organization face with inspection data?</div>
+      <div class="nbadges"><span class="badge-field">data_challenges</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:11288px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How important is inspection data for predictive maintenance?</div>
+      <div class="nbadges"><span class="badge-field">data_importance</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:11518px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What % of inspection data is actively used for decision-making?</div>
+      <div class="nbadges"><span class="badge-field">data_usage_pct</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:11748px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What level of automation is currently deployed in your organization?</div>
+      <div class="nbadges"><span class="badge-field">automation_level</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:11978px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Have you piloted robotic inspection solutions at your organization?</div>
+      <div class="nbadges"><span class="badge-field">robotics_pilot</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:12208px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What use cases are most suitable for robotics?</div>
+      <div class="nbadges"><span class="badge-field">robotics_use_cases</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:12418px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What capabilities are most critical in inspection robotics?</div>
+      <div class="nbadges"><span class="badge-field">robotics_capabilities</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:12648px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which systems must inspection solutions integrate with?</div>
+      <div class="nbadges"><span class="badge-field">integration_systems</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:12858px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What are the biggest integration challenges?</div>
+      <div class="nbadges"><span class="badge-field">integration_challenges</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:13068px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What are the most significant components of TCO?</div>
+      <div class="nbadges"><span class="badge-field">tco_components</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:13278px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How do you expect automation investment to change in 2-3 years?</div>
+      <div class="nbadges"><span class="badge-field">investment_trajectory</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:13508px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">If automation reduced downtime by 20%, what&#x27;s the primary impact?</div>
+      <div class="nbadges"><span class="badge-field">downtime_reduction_impact</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:13738px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What priority is assigned to inspection automation in your org?</div>
+      <div class="nbadges"><span class="badge-field">automation_priority</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:13968px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">What will define a best-in-class inspection program in 5 years?</div>
+      <div class="nbadges"><span class="badge-field">future_vision</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:14198px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Which automated inspection solution providers are you aware of?</div>
+      <div class="nbadges"><span class="badge-field">vendor_awareness</span><span class="badge-type">multi-choice</span></div>
+    </div>
+    <div class="ncard nask" style="left:80.0px; top:14448px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">Rate the selected providers on reliability, ease-of-use, and data quality.</div>
+      <div class="nbadges"><span class="badge-field">provider_ratings</span><span class="badge-type">grid</span></div>
+    </div>
+    <div class="ncard nask" style="left:410.0px; top:14698px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6EE7B7" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 114.2 1.8c-.7.6-1.2 1-1.2 2" stroke="#6EE7B7" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="#6EE7B7"/></svg></span><span class="nlabel">Ask</span><span class="req-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="#6B7280" stroke-width="2"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#6B7280" stroke-width="2"/></svg>required</span></div>
+      <div class="ntext">How satisfied are you with your current inspection process?</div>
+      <div class="nbadges"><span class="badge-field">overall_satisfaction</span><span class="badge-type">choice</span></div>
+    </div>
+    <div class="ncard nend" style="left:410.0px; top:14928px; width:264px;">
+      <div class="nhead"><span class="nicon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F87171" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="#F87171" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nlabel">End</span></div>
+      <div class="ntext">You&#x27;ve reached the end of the survey. Thank you for your time.</div>
+      
+    </div>
+    </div>
+  </div>
+</body>
+</html>
